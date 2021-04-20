@@ -1,5 +1,4 @@
 FROM python:3
-RUN git clone https://github.com/merovigen/student-exam2.git
 
 WORKDIR student-exam2
 
