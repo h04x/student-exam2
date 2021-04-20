@@ -16,9 +16,9 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh """
-                    pip install -e '.[test]'
-                    /usr/bin/python-coverage run -m pytest
-                    /usr/bin/python-coverage report
+                    pip3 install --user -e '.[test]'
+                    /usr/bin/coverage-3 run -m pytest
+                    /usr/bin/coverage-3 report
                 """
             }
         }
@@ -40,6 +40,11 @@ pipeline {
                 
             }
         }
+        stage ('Invoke pipeline-cd') {
+            steps {
+                build job: 'pipeline-cd', parameters: []
+            }
+}
         stage('Remove image') {
             steps {
                 sh "docker rmi $imagename"
