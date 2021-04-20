@@ -1,7 +1,5 @@
 FROM python:3
 
-WORKDIR student-exam2
-
 RUN python3 -m venv venv
 RUN . venv/bin/activate
 RUN pip install -e .
