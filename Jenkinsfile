@@ -8,8 +8,8 @@ pipeline {
             steps {
                 sh """
                     pip3 install --user -e '.[test]'
-                    /usr/bin/coverage-3 run -m pytest
-                    /usr/bin/coverage-3 report
+                    /usr/bin/coverage3 run -m pytest
+                    /usr/bin/coverage3 report
                 """
             }
         }
