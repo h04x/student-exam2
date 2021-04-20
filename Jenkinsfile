@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('Clone repo') {
             steps {
-                echo 'Cloning..'
                 sh """
                     git clone https://github.com/h04x/student-exam2.git .
                 """
@@ -14,7 +13,6 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
                 sh """
                     pip3 install --user -e '.[test]'
                     /usr/bin/coverage-3 run -m pytest
@@ -31,7 +29,6 @@ pipeline {
         }
         stage('Push image') {
             steps {
-                echo 'Deploying....'
                 script {
                     docker.withRegistry( '', 'h04x3r-dockerhub') {
                     dockerImage.push('latest')
