@@ -30,11 +30,6 @@ pipeline {
                 
             }
         }
-        stage ('Invoke pipeline-cd') {
-            steps {
-                build job: 'pipeline-cd', parameters: []
-            }
-}
         stage('Remove image') {
             steps {
                 sh "docker rmi $imagename"
