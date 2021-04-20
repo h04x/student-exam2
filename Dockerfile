@@ -3,6 +3,7 @@ FROM python:3
 COPY js_example /js_exampple
 COPY setup.cfg /
 COPY setup.py /
+COPY README.rst /
 
 RUN python3 -m venv venv
 RUN . venv/bin/activate
