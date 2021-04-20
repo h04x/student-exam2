@@ -4,13 +4,6 @@ pipeline {
     }
     agent any
     stages {
-        stage('Clone repo') {
-            steps {
-                sh """
-                    git clone https://github.com/h04x/student-exam2.git .
-                """
-            }
-        }
         stage('Test') {
             steps {
                 sh """
